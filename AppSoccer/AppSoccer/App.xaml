@@ -1,10 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infra="clr-namespace:AppSoccer.Infrastructure;assembly=AppSoccer"
              x:Class="AppSoccer.App">
-	<Application.Resources>
+	
 
-		<!-- Application resource dictionary -->
+        <Application.Resources>
+            <ResourceDictionary>
+            <!--Locator-->
+            <infra:IntanceLocator x:Key="Locator"></infra:IntanceLocator>
 
-	</Application.Resources>
+            <!--Colors-->
+                <Color x:Key="MainColor">#38401a</Color>
+                <Color x:Key="FontColor">#261b14</Color>
+                <Color x:Key="AccentColor1">#d9b88f</Color>
+                <Color x:Key="AccentColor2">#a68863</Color>
+                <Color x:Key="BackgroundColor">#c1ced9</Color>
+            </ResourceDictionary>
+        </Application.Resources>
+
+
+    
 </Application>

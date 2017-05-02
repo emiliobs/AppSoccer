@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppSoccer.Pages.LoginPage"
+             Title="App Soccer...."
+             BackgroundColor="{StaticResource MainColor}"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+
+    <ScrollView BindingContext="{Binding Login}">
+
+        <StackLayout  Spacing="5" Padding="10">
+            <Image Source="soccer_logo.png"></Image>     
+            <Label Text="Login." 
+                   FontSize="Large" 
+                   FontAttributes="Bold" 
+                   TextColor="{StaticResource BackgroundColor}" 
+                   HorizontalOptions="Center" 
+                  VerticalOptions="Center">
+            </Label>                     
+            <StackLayout Padding="30, 0,30,0" Orientation="Vertical">
+                <Label Text="E-Mail" 
+                           FontAttributes="Bold" 
+                           HorizontalOptions="Start" 
+                           TextColor="{StaticResource BackgroundColor}"
+                           VerticalOptions="Center"></Label>
+                <Entry Text="{Binding Email}" Placeholder="Enter an Email....." 
+                       Keyboard="Email" 
+                           BackgroundColor="{StaticResource BackgroundColor}"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center"></Entry>
+            </StackLayout>
+            <StackLayout Padding="30, 0,30,0" Orientation="Vertical">
+                <Label Text="Password" 
+                           FontAttributes="Bold" 
+                           HorizontalOptions="Start" 
+                           TextColor="{StaticResource BackgroundColor}"
+                           VerticalOptions="Center"></Label>
+                <Entry Text="{Binding Password}" Placeholder="Enter an Email....." 
+                           IsPassword="True"
+                           BackgroundColor="{StaticResource BackgroundColor}"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="Center"></Entry>
+            </StackLayout>
+            <StackLayout Padding="30, 0,30,0" Orientation="Horizontal">
+                <Switch IsToggled="{Binding IsRemembered}"></Switch>
+                <Label Text="Remember Me." 
+                           FontAttributes="Bold" 
+                           HorizontalOptions="Start" 
+                           TextColor="{StaticResource BackgroundColor}"
+                           VerticalOptions="Center"></Label>                    
+            </StackLayout>
+            <ActivityIndicator IsRunning="{Binding IsRunning}"></ActivityIndicator>
+            <StackLayout Padding="30, 0,30,0" Orientation="Vertical">
+                <Button Text="Login."
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        BackgroundColor="Orange"
+                        TextColor="White"
+                        Command="{Binding LoginCommand}">                    
+                </Button>
+                <Button Text="Login With Facebook."
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        BackgroundColor="Navy"
+                        TextColor="White"
+                        Command="{Binding LoginFacebookCommand}">
+                </Button>
+                <Button Text="Register New Users."
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center"
+                        BackgroundColor="Purple"
+                        TextColor="White"
+                        Command="{Binding RegisterCommand}">
+                </Button>
+            </StackLayout>
+            <Label Text="Forgot your Password?"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   TextColor="{StaticResource BackgroundColor }">
+
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="ForgotPasswordCommand"></TapGestureRecognizer>
+                </Label.GestureRecognizers>
+                
+            </Label>
+        </StackLayout>
+
+    </ScrollView>
+    
+    
+</ContentPage>

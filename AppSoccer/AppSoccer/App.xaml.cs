@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppSoccer.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace AppSoccer
         {
             InitializeComponent();
 
-            MainPage = new AppSoccer.MainPage();
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()
