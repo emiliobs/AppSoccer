@@ -56,21 +56,24 @@
                         VerticalOptions="Center"
                         BackgroundColor="Orange"
                         TextColor="White"
-                        Command="{Binding LoginCommand}">                    
+                        Command="{Binding LoginCommand}"
+                         IsEnabled="{Binding IsEnabled}">                    
                 </Button>
                 <Button Text="Login With Facebook."
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="Center"
                         BackgroundColor="Navy"
                         TextColor="White"
-                        Command="{Binding LoginFacebookCommand}">
+                        Command="{Binding LoginFacebookCommand}"
+                        IsEnabled="{Binding IsEnabled}">
                 </Button>
                 <Button Text="Register New Users."
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="Center"
                         BackgroundColor="Purple"
                         TextColor="White"
-                        Command="{Binding RegisterCommand}">
+                        Command="{Binding RegisterCommand}"
+                         IsEnabled="{Binding IsEnabled}">
                 </Button>
             </StackLayout>
             <Label Text="Forgot your Password?"
