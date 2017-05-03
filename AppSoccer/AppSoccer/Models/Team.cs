@@ -13,5 +13,19 @@ namespace AppSoccer.Models
         public string Logo { get; set; }
         public string Initials { get; set; }
         public int LeagueId { get; set; }
+        public string FullLogo
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(Logo))
+                {
+                    return "avatar_shield.png";
+                }
+
+                return $"http://soccerbackend.azurewebsites.net{Logo.Substring(1)}";
+            }
+        }
+
+
     }
 }

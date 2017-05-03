@@ -109,6 +109,24 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Assets\soccer_logo.png" />
+    <AndroidResource Include="Assets\add.png" />
+    <AndroidResource Include="Assets\avatar_shield.png" />
+    <AndroidResource Include="Assets\avatar_tournament.png" />
+    <AndroidResource Include="Assets\avatar_user.png" />
+    <AndroidResource Include="Assets\background.jpg" />
+    <AndroidResource Include="Assets\background1.png" />
+    <AndroidResource Include="Assets\background2.jpg" />
+    <AndroidResource Include="Assets\background3.jpg" />
+    <AndroidResource Include="Assets\background4.jpg" />
+    <AndroidResource Include="Assets\background5.jpg" />
+    <AndroidResource Include="Assets\config.png" />
+    <AndroidResource Include="Assets\facebook_icon.png" />
+    <AndroidResource Include="Assets\groups.png" />
+    <AndroidResource Include="Assets\icon.png" />
+    <AndroidResource Include="Assets\logut.png" />
+    <AndroidResource Include="Assets\myresults.png" />
+    <AndroidResource Include="Assets\predictions.png" />
+    <AndroidResource Include="Assets\tournaments.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-100.png" />
     <Content Include="Assets\LockScreenLogo.scale-125.png" />

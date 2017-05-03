@@ -19,5 +19,24 @@ namespace AppSoccer.Models
         public int Points { get; set; }
         public UserType UserType { get; set; }
         public Team FavoriteTeam { get; set; }
+        public string FullName { get { return $"{FirstName} {LastName}"; } }      
+        public string FullPicture
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(Picture))
+                {
+                    return "avatar_user.png";
+                }
+
+                return $"http://soccerbackend.azurewebsites.net{Picture.Substring(1)}";
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return UserId;
+        }
+
     }
 }

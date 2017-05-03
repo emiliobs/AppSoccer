@@ -17,6 +17,7 @@ namespace AppSoccer.ViewModels
         #region Atributtes        
         private ApiService apiService;
         private DialogService dialogService;
+        private NavigationService navigationService;
         private string email;
         private string password;
         private bool isRunning;
@@ -112,6 +113,7 @@ namespace AppSoccer.ViewModels
         {
             apiService    = new ApiService();
             dialogService = new DialogService();
+            navigationService = new NavigationService();
 
             IsEnabled = true;
             IsRemembered = true;
@@ -195,13 +197,24 @@ namespace AppSoccer.ViewModels
             }
 
 
+            //limpios campos:
+            Email = null;
+            Password = null;
+
             //Si llego hasta aui todo esta bien..
             IsRunning = false;
             IsEnabled = true;
 
             var user = (User)response.Result;
+            //Prueba que todo esta bien:
+            //await dialogService.ShowMessage("All equals OK...", $"Welcome: {user.FirstName} {user.LastName}, Alias {user.NickName}");
 
-            await dialogService.ShowMessage("All equals OK...", $"Welcome: {user.FirstName} {user.LastName}, Alias {user.NickName}");
+            //aqui utilizo el singleton con sus mienbros:
+            var mainViewModel = MainViewModel.GetInstance();
+            //aqui le llevos los valores del servicio a los valores mapeados en las clases locales:
+            mainViewModel.CurrentUser = user;
+            //aqui ya con los datos verificados en la nube, navega al amasterPage:
+            navigationService.SetMainPage("MasterPage");
 
         }
 
