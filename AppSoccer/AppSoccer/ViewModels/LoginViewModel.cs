@@ -1,4 +1,5 @@
-﻿using AppSoccer.Models;
+﻿using AppSoccer.Classes;
+using AppSoccer.Models;
 using AppSoccer.Service;
 using GalaSoft.MvvmLight.Command;
 using Plugin.Connectivity;
@@ -18,6 +19,7 @@ namespace AppSoccer.ViewModels
         private ApiService apiService;
         private DialogService dialogService;
         private NavigationService navigationService;
+        private DataService dataService;
         private string email;
         private string password;
         private bool isRunning;
@@ -114,6 +116,7 @@ namespace AppSoccer.ViewModels
             apiService    = new ApiService();
             dialogService = new DialogService();
             navigationService = new NavigationService();
+            dataService = new DataService();
 
             IsEnabled = true;
             IsRemembered = true;
@@ -160,7 +163,10 @@ namespace AppSoccer.ViewModels
                 await dialogService.ShowMessage("Error","Check Your internet Connection.");
             }
 
-            var token = await apiService.GetToken("http://soccerapi.azurewebsites.net",Email,Password);
+            //aqui busco el parametro quedo en el dicionarios de resucurso qu eya esta grbado en la db:
+            var parameter = dataService.First<Parameter>(false);
+
+            var token = await apiService.GetToken(parameter.URLBase, Email,Password);
 
             if (token == null)
             {
@@ -182,8 +188,9 @@ namespace AppSoccer.ViewModels
 
             }
 
+           
             //Aqui ya le pregunto con el usurioname o email, para que me retorne el usuario autorizado:
-            var response = await apiService.GetUserByEmail("http://soccerapi.azurewebsites.net", "/api", "/Users/GetUserByEmail",
+            var response = await apiService.GetUserByEmail(parameter.URLBase, "/api", "/Users/GetUserByEmail",
                 token.TokenType, token.AccessToken, token.UserName);
 
 
@@ -206,6 +213,18 @@ namespace AppSoccer.ViewModels
             IsEnabled = true;
 
             var user = (User)response.Result;
+            user.AccessToken = token.AccessToken;
+            user.TokenType = token.TokenType;
+            user.TokenExpires = token.Expires;
+            user.IsRemembered = IsRemembered;
+            user.Password = Password;
+
+            //aqui inserto el ultimo dato y booro lo que habia:
+            dataService.DeleteAllAndInsert(user.FavoriteTeam);
+            dataService.DeleteAllAndInsert(user.UserType);
+            dataService.DeleteAllAndInsert(user);
+            
+
             //Prueba que todo esta bien:
             //await dialogService.ShowMessage("All equals OK...", $"Welcome: {user.FirstName} {user.LastName}, Alias {user.NickName}");
 

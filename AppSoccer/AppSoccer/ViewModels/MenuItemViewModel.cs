@@ -1,4 +1,5 @@
-﻿using AppSoccer.Service;
+﻿using AppSoccer.Classes;
+using AppSoccer.Service;
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace AppSoccer.ViewModels
         #region Atributtes
 
         private NavigationService navigationService;
+        private DataService dataService;
 
         #endregion
 
@@ -29,6 +31,7 @@ namespace AppSoccer.ViewModels
         public MenuItemViewModel()
         {
             navigationService = new NavigationService();
+            dataService = new DataService();
         }
         #endregion
 
@@ -40,6 +43,10 @@ namespace AppSoccer.ViewModels
         {
             if (PageName == "LoginPage")
             {
+
+                var mainViewModel = MainViewModel.GetInstance();
+                mainViewModel.CurrentUser.IsRemembered = false;
+                dataService.Update(mainViewModel.CurrentUser);
                 navigationService.SetMainPage("LoginPage");
             }
         }

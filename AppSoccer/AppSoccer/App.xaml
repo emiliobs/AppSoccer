@@ -9,6 +9,9 @@
             <ResourceDictionary>
             <!--Locator-->
             <infra:IntanceLocator x:Key="Locator"></infra:IntanceLocator>
+           
+              <!--Locator-->
+            <x:String x:Key="URLBase">http://soccerapi.azurewebsites.net</x:String>
 
             <!--Colors-->
                 <Color x:Key="MainColor">#38401a</Color>
@@ -19,6 +22,6 @@
             </ResourceDictionary>
         </Application.Resources>
 
-
     
+
 </Application>

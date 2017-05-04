@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SQLite.Net.Attributes;
+using SQLiteNetExtensions.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +10,15 @@ namespace AppSoccer.Models
 {
     public class Team
     {
+        [PrimaryKey]
         public int TeamId { get; set; }
         public string Name { get; set; }
         public string Logo { get; set; }
         public string Initials { get; set; }
         public int LeagueId { get; set; }
+
+        [OneToMany(CascadeOperations = CascadeOperation.CascadeRead)]
+        public List<User> Fans { get; set; }
         public string FullLogo
         {
             get
@@ -26,6 +32,10 @@ namespace AppSoccer.Models
             }
         }
 
+        public override int GetHashCode()
+        {
+            return TeamId;
+        }
 
     }
 }
