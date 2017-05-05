@@ -12,7 +12,10 @@ namespace AppSoccer.ViewModels
 
         #region Properties
         public LoginViewModel  Login { get; set; }
+
+        public SelectTournamentViewModel SelectTournament { get; set; }
         public ObservableCollection<MenuItemViewModel> Menu { get; set; }
+
 
         //Aqui tenfo el usuario tod el  tiempo actualizado:
         public User CurrentUser { get; set; }

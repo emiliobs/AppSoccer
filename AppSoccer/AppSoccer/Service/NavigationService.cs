@@ -24,6 +24,21 @@ namespace AppSoccer.Service
             }
         }
 
+        public async Task Navigate(string pageName)
+        {
+            //esto lo hago para ocultar la master detail:
+            App.Master.IsPresented = false;
+
+            switch(pageName)
+            {
+                case "SelectTournamentPage":
+                    await App.Navigator.PushAsync(new SelectTournamentPage());
+                    break;
+                default:
+                    break;
+            }
+        }
+
         #endregion
     }
 }

@@ -10,19 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace AppSoccer.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MasterPage : MasterDetailPage
+    public partial class SelectTournamentPage : ContentPage
     {
-        public MasterPage()
+        public SelectTournamentPage()
         {
             InitializeComponent();
-
-        }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            App.Master = this;
-            App.Navigator = Navigator;
         }
     }
 }

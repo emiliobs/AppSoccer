@@ -17,6 +17,7 @@ namespace AppSoccer.ViewModels
         private NavigationService navigationService;
         private DataService dataService;
 
+
         #endregion
 
         #region Properties
@@ -39,16 +40,33 @@ namespace AppSoccer.ViewModels
         #region Commands
         public ICommand NavigateCommand { get { return new RelayCommand(Navigate); } }
 
-        private void Navigate()
+        private async void Navigate()
         {
+            var mainViewModel = MainViewModel.GetInstance();
+
+
             if (PageName == "LoginPage")
             {
 
-                var mainViewModel = MainViewModel.GetInstance();
                 mainViewModel.CurrentUser.IsRemembered = false;
                 dataService.Update(mainViewModel.CurrentUser);
                 navigationService.SetMainPage("LoginPage");
             }
+            else
+            {
+                switch(PageName)
+                {
+
+                    case "SelectTournamentPage":
+                        mainViewModel.SelectTournament = new SelectTournamentViewModel();
+                        await navigationService.Navigate(PageName);
+                        break;
+
+                    default:
+                        break;
+                        
+                }
+        }
         }
         #endregion
     }

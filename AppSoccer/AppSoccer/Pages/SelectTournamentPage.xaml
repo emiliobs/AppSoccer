@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppSoccer.Pages.SelectTournamentPage"
+             Title="Select Tournament"
+             BackgroundColor="{StaticResource AccentColor1}"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ScrollView>
+        <StackLayout
+        BindingContext="{Binding SelectTournament}"
+        Padding="8">
+            <ListView
+            ItemsSource="{Binding Tournaments}"
+            HasUnevenRows="True"
+            IsPullToRefreshEnabled="True"
+            RefreshCommand="{Binding RefreshCommand}"
+            IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="8">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectTournamentCommand}"/>
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                  Source="{Binding FullLogo}"
+                                  VerticalOptions="Start"
+                                  WidthRequest="70"
+                                  HeightRequest="70">
+                                </Image>
+                                <StackLayout 
+                                VerticalOptions="Center"
+                                Grid.Column="1">
+                                    <Label
+                                    FontAttributes="Bold"
+                                    VerticalOptions="Center"
+                                    TextColor="Black"
+                                    FontSize="Medium"
+                                    Text="{Binding Name}">
+                                    </Label>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+    
+
+</ContentPage>
