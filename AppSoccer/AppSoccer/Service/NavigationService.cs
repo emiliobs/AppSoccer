@@ -34,6 +34,9 @@ namespace AppSoccer.Service
                 case "SelectTournamentPage":
                     await App.Navigator.PushAsync(new SelectTournamentPage());
                     break;
+                case "SelectMachPage":
+                    await App.Navigator.PushAsync(new SelectMachPage());
+                    break;
                 default:
                     break;
             }

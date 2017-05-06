@@ -47,6 +47,7 @@
     <Compile Include="Interfaces\IConfig.cs" />
     <Compile Include="Models\Date.cs" />
     <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\Match.cs" />
     <Compile Include="Models\Parameter.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\Tournament.cs" />
@@ -64,6 +65,9 @@
     <Compile Include="Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SelectMachPage.xaml.cs">
+      <DependentUpon>SelectMachPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SelectTournamentPage.xaml.cs">
       <DependentUpon>SelectTournamentPage.xaml</DependentUpon>
     </Compile>
@@ -72,8 +76,10 @@
     <Compile Include="Service\DialogService.cs" />
     <Compile Include="Service\NavigationService.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MachItemViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MenuItemViewModel.cs" />
+    <Compile Include="ViewModels\SelectMachViewModel.cs" />
     <Compile Include="ViewModels\SelectTournamentViewModel.cs" />
     <Compile Include="ViewModels\TournamentItenViewModel.cs" />
   </ItemGroup>
@@ -163,6 +169,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\SelectTournamentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\SelectMachPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
