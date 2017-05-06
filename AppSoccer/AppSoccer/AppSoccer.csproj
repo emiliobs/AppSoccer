@@ -53,6 +53,9 @@
     <Compile Include="Models\Tournament.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserType.cs" />
+    <Compile Include="Pages\EditPredictionPage.xaml.cs">
+      <DependentUpon>EditPredictionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -75,6 +78,7 @@
     <Compile Include="Service\ApiService.cs" />
     <Compile Include="Service\DialogService.cs" />
     <Compile Include="Service\NavigationService.cs" />
+    <Compile Include="ViewModels\EditPredictionViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MachItemViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -175,6 +179,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\SelectMachPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\EditPredictionPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -15,6 +15,7 @@ namespace AppSoccer.ViewModels
 
         public SelectTournamentViewModel SelectTournament { get; set; }
         public SelectMachViewModel SelectMatch { get; set; }
+        public EditPredictionViewModel EditPrediction { get; set; }
         public ObservableCollection<MenuItemViewModel> Menu { get; set; }
 
 

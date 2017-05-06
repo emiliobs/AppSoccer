@@ -37,6 +37,9 @@ namespace AppSoccer.Service
                 case "SelectMachPage":
                     await App.Navigator.PushAsync(new SelectMachPage());
                     break;
+                case "EditPredictionPage":
+                    await App.Navigator.PushAsync(new EditPredictionPage());
+                    break;
                 default:
                     break;
             }
