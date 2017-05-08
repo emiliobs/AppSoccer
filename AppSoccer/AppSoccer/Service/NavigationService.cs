@@ -21,6 +21,11 @@ namespace AppSoccer.Service
                 case "LoginPage":
                     App.Current.MainPage = new LoginPage();
                     break;
+                case "NewUserPage":
+                    App.Current.MainPage = new NewUserPage();
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -40,9 +45,16 @@ namespace AppSoccer.Service
                 case "EditPredictionPage":
                     await App.Navigator.PushAsync(new EditPredictionPage());
                     break;
+               
                 default:
                     break;
             }
+        }
+
+        public async Task Back()
+        {
+            //aqui desapilo, back:
+            await App.Navigator.PopAsync();   
         }
 
         #endregion

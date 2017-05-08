@@ -75,6 +75,7 @@ namespace AppSoccer.Service
         }
 
 
+        //Geto con token, con seguridad
         public async Task<Response> Get<T>(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken)
         {
             try
@@ -112,6 +113,45 @@ namespace AppSoccer.Service
                 };
             }
         }
+
+        //Get sin Token -- sin seguridad
+        public async Task<Response> Get<T>(string urlBase, string servicePrefix, string controller)
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.BaseAddress = new Uri(urlBase);
+                var url = string.Format("{0}{1}", servicePrefix, controller);
+                var response = await client.GetAsync(url);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = response.StatusCode.ToString(),
+                    };
+                }
+
+                var result = await response.Content.ReadAsStringAsync();
+                var list = JsonConvert.DeserializeObject<List<T>>(result);
+                return new Response
+                {
+                    IsSuccess = true,
+                    Message = "Ok",
+                    Result = list,
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+                };
+            }
+        }
+
 
         public async Task<Response> Post<T>(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken, T model)
         {

@@ -34,6 +34,7 @@ namespace AppSoccer.Models
                 return null;
             }
         }
+
         public int? VisitorGoals2
         {
             get
@@ -46,6 +47,7 @@ namespace AppSoccer.Models
                 return null;
             }
         }
+
     }
 
     //public class Local

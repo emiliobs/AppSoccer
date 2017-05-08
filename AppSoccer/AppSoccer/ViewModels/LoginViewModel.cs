@@ -125,7 +125,20 @@ namespace AppSoccer.ViewModels
         #endregion
 
         #region Commands
+
+        public ICommand RegisterCommand { get { return new RelayCommand(Register); } }
+
+        private  void Register()
+        {
+            //aqui invoco el singleton para poder ejecutar el metodo para traer las ligas:
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.NewUser = new NewUserViewModel();
+
+            navigationService.SetMainPage("NewUserPage");
+        }
+
         public ICommand LoginCommand { get { return new RelayCommand(Login); } }
+
 
         private async void Login()
         {

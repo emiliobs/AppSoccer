@@ -42,13 +42,16 @@
     <Compile Include="Classes\Response.cs" />
     <Compile Include="Classes\TokenResponse.cs" />
     <Compile Include="Classes\UserRequest.cs" />
+    <Compile Include="Controls\BindablePicker.cs" />
     <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Infrastructure\IntanceLocator.cs" />
     <Compile Include="Interfaces\IConfig.cs" />
     <Compile Include="Models\Date.cs" />
     <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\Leagues.cs" />
     <Compile Include="Models\Match.cs" />
     <Compile Include="Models\Parameter.cs" />
+    <Compile Include="Models\Prediction.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Models\Tournament.cs" />
     <Compile Include="Models\User.cs" />
@@ -68,6 +71,9 @@
     <Compile Include="Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\NewUserPage.xaml.cs">
+      <DependentUpon>NewUserPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SelectMachPage.xaml.cs">
       <DependentUpon>SelectMachPage.xaml</DependentUpon>
     </Compile>
@@ -79,12 +85,15 @@
     <Compile Include="Service\DialogService.cs" />
     <Compile Include="Service\NavigationService.cs" />
     <Compile Include="ViewModels\EditPredictionViewModel.cs" />
+    <Compile Include="ViewModels\LeagueItemViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MachItemViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MenuItemViewModel.cs" />
+    <Compile Include="ViewModels\NewUserViewModel.cs" />
     <Compile Include="ViewModels\SelectMachViewModel.cs" />
     <Compile Include="ViewModels\SelectTournamentViewModel.cs" />
+    <Compile Include="ViewModels\TeamItemViewModel.cs" />
     <Compile Include="ViewModels\TournamentItenViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +194,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\EditPredictionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\NewUserPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

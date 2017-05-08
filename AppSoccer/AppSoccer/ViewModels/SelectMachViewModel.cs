@@ -1,6 +1,7 @@
 ﻿using AppSoccer.Classes;
 using AppSoccer.Models;
 using AppSoccer.Service;
+using GalaSoft.MvvmLight.Command;
 using Plugin.Connectivity;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace AppSoccer.ViewModels
 {
@@ -41,9 +43,11 @@ namespace AppSoccer.ViewModels
         }
         #endregion
 
-            #region Contructor
+        #region Contructor
         public SelectMachViewModel(int tournamentId)
         {
+            //la instacia soy yo mismo:
+            instance = this;
             this.tournamentId = tournamentId;
             apiService = new ApiService();
             dialogService = new DialogService();
@@ -53,8 +57,30 @@ namespace AppSoccer.ViewModels
             Matches = new ObservableCollection<MachItemViewModel>();
 
             //
+           // LoadMatches();
+        }
+
+
+
+        #endregion
+
+        #region Singlenton
+        private static SelectMachViewModel instance;
+        public static SelectMachViewModel GetInstance()
+        {
+
+            return instance;
+        }
+        #endregion
+
+        #region Commands
+        public ICommand RefreshCommand { get { return new RelayCommand(Refresh); } }
+
+        private void Refresh()
+        {
             LoadMatches();
         }
+        #endregion
 
         #region Methods
         private async void LoadMatches()
@@ -100,19 +126,19 @@ namespace AppSoccer.ViewModels
             {
                 Matches.Add(new MachItemViewModel
                 {
-                  DateId   = match.DateId,
-                  DateTime = match.DateTime,
-                  Local    = match.Local,
-                  LocalGoals = match.LocalGoals,
-                  LocalId = match.LocalId,
-                  MatchId = match.MatchId,
-                  StatusId = match.StatusId,
-                  TournamentGroupId = match.TournamentGroupId,
-                  Visitor = match.Visitor,
-                  VisitorGoals = match.VisitorGoals,
-                  VisitorId = match.VisitorId,
-                  WasPredicted = match.WasPredicted,
-                  
+                    DateId = match.DateId,
+                    DateTime = match.DateTime,
+                    Local = match.Local,
+                    LocalGoals = match.LocalGoals,
+                    LocalId = match.LocalId,
+                    MatchId = match.MatchId,
+                    StatusId = match.StatusId,
+                    TournamentGroupId = match.TournamentGroupId,
+                    Visitor = match.Visitor,
+                    VisitorGoals = match.VisitorGoals,
+                    VisitorId = match.VisitorId,
+                    WasPredicted = match.WasPredicted,
+
                 });
             }
         }
@@ -127,7 +153,6 @@ namespace AppSoccer.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-        #endregion
         #endregion
     }
 }
