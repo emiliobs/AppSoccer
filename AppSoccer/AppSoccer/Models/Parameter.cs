@@ -13,6 +13,7 @@ namespace AppSoccer.Models
         public int ParameterId { get; set; }
 
         public string URLBase { get; set; }
+        public string URLBase2 { get; set; }
 
         public override int GetHashCode()
         {

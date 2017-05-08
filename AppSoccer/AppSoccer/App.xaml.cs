@@ -58,6 +58,7 @@ namespace AppSoccer
         private void LoadParameter()
         {
             var urlsBase = Application.Current.Resources["URLBase"].ToString();
+            var urlsBase2 = Application.Current.Resources["URLBase2"].ToString();
             var parameter = dataService.First<Parameter>(false);
 
             if (parameter == null)
@@ -65,6 +66,7 @@ namespace AppSoccer
                 parameter = new Parameter
                 {
                    URLBase = urlsBase,
+                   URLBase2 = urlsBase2,
                 };
 
                 dataService.Insert(parameter);
@@ -72,6 +74,7 @@ namespace AppSoccer
             else
             {
                 parameter.URLBase = urlsBase;
+                parameter.URLBase2 = urlsBase2;
                 dataService.Update(parameter);
             }
 

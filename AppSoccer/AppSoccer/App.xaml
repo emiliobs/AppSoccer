@@ -12,6 +12,7 @@
            
               <!--Locator-->
             <x:String x:Key="URLBase">http://soccerapi.azurewebsites.net</x:String>
+            <x:String x:Key="URLBase2">http://soccerbackend.azurewebsites.net</x:String>
 
             <!--Colors-->
                 <Color x:Key="MainColor">#38401a</Color>

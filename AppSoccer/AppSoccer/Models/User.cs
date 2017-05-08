@@ -46,9 +46,11 @@ namespace AppSoccer.Models
                     return "avatar_user.png";
                 }
 
-                return $"http://soccerbackend.azurewebsites.net{Picture.Substring(1)}";
+                return $"http://soccerapi.azurewebsites.net/{Picture.Substring(1)}";
             }
         }
+
+        public byte[] ImageArray { get; internal set; }
 
         public override int GetHashCode()
         {
