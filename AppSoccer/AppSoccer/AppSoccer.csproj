@@ -162,6 +162,37 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Utilities\com.emilio_emosoft.Soccer.apk" />
+    <None Include="Utilities\Configuración del Ambiente de Desarrollo para Xamarin.docx" />
+    <None Include="Utilities\Creating and consuming services from Xamarin Forms App on Azure.docx" />
+    <None Include="Utilities\CursoXamarin Juancaarlos.rar" />
+    <None Include="Utilities\datepicker.rar" />
+    <None Include="Utilities\datepicker.zip" />
+    <None Include="Utilities\Demo SQLite Relations.docx" />
+    <None Include="Utilities\Demo Xamarin Divisas II.docx" />
+    <None Include="Utilities\Divisas 2 MVVM.docx" />
+    <None Include="Utilities\Divisas MVVM.docx" />
+    <None Include="Utilities\ECommerce App.docx" />
+    <None Include="Utilities\Guia ejemplo de SQLite en Xamarin.Forms %28Ver 3%29.docx" />
+    <None Include="Utilities\javascript_the_good_parts.pdf" />
+    <None Include="Utilities\lab04.pdf" />
+    <None Include="Utilities\lab05.pdf" />
+    <None Include="Utilities\Modelos ECommerce App.docx" />
+    <None Include="Utilities\Modelos Orders.docx" />
+    <None Include="Utilities\Momento Valorativo #4.pdf" />
+    <None Include="Utilities\Momento Valorativo #5.pdf" />
+    <None Include="Utilities\MVC.docx" />
+    <None Include="Utilities\MVVM.docx" />
+    <None Include="Utilities\Programación Distribuida Momento Valorativo #2.docx" />
+    <None Include="Utilities\Programación Distribuida Momento Valorativo #4.docx" />
+    <None Include="Utilities\Soccer API.docx" />
+    <None Include="Utilities\Soccer App.docx" />
+    <None Include="Utilities\Soccer.bmpr" />
+    <None Include="Utilities\Soccer.docx" />
+    <None Include="Utilities\Soccer.pdf" />
+    <None Include="Utilities\Soccer.pptx" />
+    <None Include="Utilities\Taller Consumo de servicios Azure desde Xamarin Forms.docx" />
+    <None Include="Utilities\Web API And Publish.docx" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\MasterPage.xaml">
@@ -210,6 +241,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Utilities\bootstrap.css" />
+    <Content Include="Utilities\bootstrap.min.css" />
+    <Content Include="Utilities\DER Ecommerce.png" />
+    <Content Include="Utilities\fondo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
